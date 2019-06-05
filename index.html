@@ -1,0 +1,142 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>IWMW 2019 - Putting all your eggs in one basket - Peter Edwards- University of Leeds</title>
+
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/uol.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/monokai.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+					<h2>Putting all your eggs in one basket</h2>
+					<p>Peter Edwards</p>
+					<p>Application Developer, University of Leeds</p>
+					<aside class="notes">
+						<p>Hi, I've been working at the University of Leeds since 2009 as an Application Developer, first in two of the Faculties and later as part of a central team. My background is in Libraries and Education, and I've been a web developer now for almost 20 years.</p>
+					</aside>
+				</section>
+				<section data-background-image="img/cms-collage.png" data-background-size="contain" data-transition="fade-in fade-out">
+					<aside class="notes">
+						<p>When I first came to the University of Leeds, the CMS landscape was very diverse, and the University operated a UNIX web hosting service much like a commercial hosting service, where staff could request web space and do whatever they wished with it once they got it. This resulted in a profusion of different CMS systems, static sites and custom applications.</p>
+					</aside>
+				</section>
+				<section data-background-image="img/hacked-skull-crossbones.png" data-background-size="contain">
+					<h3>The demise of the UNIX hosting service</h3>
+					<ul>
+						<li>In December 2016, one of the sites in the University's UNIX hosting service was hacked</li>
+						<li>The site was used to spread malicious code to the other 200+ sites in the service</li>
+						<li>When the sites were examined to determine the cause, a large number were found to be vulnerable</li>
+					</ul>
+					<aside class="notes">
+						<p>In December 2016, all the sites in the UNIX hosting service were compromised and malicious code was inserted into each site. Any files which were writable by the webserver user were targets, and malicious JavaScript and PHP code inserted into many of the files. Specific systems had their own attack vectors, such as the theme files in WordPress, the site cache in MODx, or the database in drupal, mediawiki and others.</p>
+					</aside>
+				</section>
+				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+					<h3>The University of Leeds WordPress hosting service</h3>
+					<ul>
+						<li>Set up as a 6 month pilot in August 2016 with WP Engine acting as a hosting provider.</li>
+						<li>The purpose of the service was to provide hosting for research projects, conferences and research groups in a managed environment</li>
+						<li>The service rapidly expanded to include the 90 WordPress sites which were compromised in UNIX hosting</li>
+					</ul>
+					<aside class="notes">
+						<p>Initially, the service consisted of a single WordPress multisite installation containing 160+ sites which had been created since 2011 for the two Faculties in which I had been working. This installation had outgrown its hosting (in a Virtual Machine on campus) and the service needed to be formalised and expanded to include other Faculties.</p>
+						<p>However, half way through the pilot, the service was almost filled to capacity with sites moving from the compromised UNIX hosting service</p>
+					</aside>
+				</section>
+				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+					<h3>Migrating sites to WordPress</h3>
+					<ul>
+						<li>Using the WP Engine automated migration tool</li>
+						<li>Using WordPress XML import/export tools</li>
+						<li>Using the source system to generate a WordPress export file</li>
+						<li>Import content from CSV files or other structured data source using custom scripts</li>
+						<li>Copy and paste</li>
+					</ul>
+					<aside class="notes">
+						<p>About half of WordPress sites were moved using an automated tool written by developers at WP Engine, but they had to be cleared of any infected files beforehand. Most of the remaining WordPress sites could be migrated using built-in import/expot tools in WordPress. Where sites in other systems needed to be migrated to WordPress, some migrations were carried out using the source system to generate a WordPress import file or CSV/JSON data, but this was only carried out for larger sites. The majority were migrated manually by copying and pasting content.</p>
+					</aside>
+				</section>
+				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+					<h3>Using WordPress at scale</h3>
+				</section>
+				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+					<h3>WordPress multisite</h3>
+					<p>in WordPress core since 2010, version 3.0</p>
+					<ul>
+						<li>Multiple sites in a single installation</li>
+						<li>Control over Theme and Plugin availability</li>
+						<li>Low administrative overhead</li>
+					</ul>
+					<aside class="notes">
+						<p>For those of you not familiar with WordPress multisite, it enables you to set up multiple WordPress sites which utilise the same codebase and database. Users, Plugins and Themes are managed at a "Network" level, which makes it easy to control what software is available to users on sites within the Network.</p>
+						<p>We currently use WordPress multisite to host over 600 websites at the University of Leeds. These are spread across a few separate WordPress installations, so sites utilising the University's branded theme are all grouped together in an installation which only has this theme installed and the plugins which are known to work with it. Non-branded sites are placed in a different installation with a single theme (GeneratePress) installed along the plugins which are known to work with it. One installation is used to dump older WordPress sites developed by third parties and sites which require esoteric plugins, in order to separate them from the more simple sites.</p>
+					</aside>
+				</section>
+				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+					<h3>Domain mapping</h3>
+					<p>in WordPress core since 2016, version 4.5</p>
+					<ul>
+						<li>Assign domain names to each site on a network</li>
+						<li>Results in sites which appear to be independent to the end user, but are centrally managed</li>
+					</ul>
+					<aside class="notes">
+						<p>Domain mapping allows you to assign different domain names to each of the sites in a multisite Network. All websites in the service use their own domain names, and administrators and editors of these sites have the same experience as they would on a standalone installation of WordPress, with the exception that they cannot change the Theme or install Plugins.</p>
+					</aside>
+				</section>
+				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+					<h3>Caching and optimisation</h3>
+					<p>Enabled through plugins and server configuration</p>
+					<ul>
+						<li>Plugins will save WordPress output to files, much like using WordPress as a static site generator</li>
+						<li>Servers are configured to check the file based cache rather than generate content dynamically for each request</li>
+					</ul>
+					<aside class="notes">
+						<p>WP Engine provides caching and optimisation on their platform, but this does not always work in our favour. WordPress is not an optimal system for websites, and all pages should ideally be cached as HTML files by an appropriate plugin. WP Engine go a few steps further than this, including loading databases into RAM, which has caused problems for us with the multisite installations.</p>
+					</aside>
+				</section>
+				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+					<h3>Disadvantages...</h3>
+					<ul>
+						<li>Proliferation of independent sites (600+ with 100+ added per year)</li>
+						<li>Requires governance, monitoring and archiving strategy</li>
+					</ul>
+				</section>
+			</div>
+		</div>
+
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				transition: 'concave',
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true }
+				]
+			});
+		</script>
+	</body>
+</html>
