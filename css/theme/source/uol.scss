@@ -13,7 +13,6 @@
 
 
 // Include theme-specific fonts
-@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
 
 
@@ -30,11 +29,6 @@ $linkColor: #3b759e;
 $linkColorHover: lighten( $linkColor, 20% );
 $selectionBackgroundColor: #134674;
 
-// Fix links so they are not cut off
-.reveal a {
-	line-height: 1.3em;
-}
-
 // Background generator
 @mixin bodyBackground() {
 	@include radial-gradient( #add9e4, #f7fbfc );
@@ -43,3 +37,17 @@ $selectionBackgroundColor: #134674;
 // Theme template ------------------------------
 @import "../template/theme";
 // ---------------------------------------------
+
+.reveal section {
+	a {
+		line-height: 1.3em;
+	}
+	img {
+		border:none;
+		box-shadow:none;
+		background:transparent;
+	}
+	blockquote {
+		padding:1.5em;
+	}
+}

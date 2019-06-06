@@ -3,11 +3,7 @@
  *
  * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
-@import url(https://fonts.googleapis.com/css?family=Quicksand:400,700,400italic,700italic);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
-.reveal a {
-  line-height: 1.3em; }
-
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -278,3 +274,14 @@ body {
 @media print {
   .backgrounds {
     background-color: #f7fbfc; } }
+
+.reveal section a {
+  line-height: 1.3em; }
+
+.reveal section img {
+  border: none;
+  box-shadow: none;
+  background: transparent; }
+
+.reveal section blockquote {
+  padding: 1.5em; }

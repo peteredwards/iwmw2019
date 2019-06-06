@@ -10,6 +10,16 @@
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/uol.css">
 
+		<!-- icons -->
+		<link rel="apple-touch-icon" sizes="180x180" href="img/icons/apple-touch-icon.png">
+		<link rel="icon" type="image/png" sizes="32x32" href="img/icons/favicon-32x32.png">
+		<link rel="icon" type="image/png" sizes="16x16" href="img/icons/favicon-16x16.png">
+		<link rel="manifest" href="img/icons/site.webmanifest">
+		<link rel="mask-icon" href="img/icons/safari-pinned-tab.svg" color="#5bbad5">
+		<meta name="msapplication-TileColor" content="#00aba9">
+		<meta name="msapplication-config" content="img/icons/browserconfig.xml">
+		<meta name="theme-color" content="#ffffff">
+
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/monokai.css">
 
@@ -30,12 +40,24 @@
 					<p>Peter Edwards</p>
 					<p>Application Developer, University of Leeds</p>
 					<aside class="notes">
-						<p>Hi, I've been working at the University of Leeds since 2009 as an Application Developer, first in two of the Faculties and later as part of a central team. My background is in Libraries and Education, and I've been a web developer now for almost 20 years.</p>
+						<p>Hi, I've been working at the University of Leeds since 2009 as an Application Developer, first in two of the Faculties in the University, and later as part of a central team. My background is in Libraries and the Arts Sector, and I've been a web developer now for almost 20 years.</p>
 					</aside>
 				</section>
-				<section data-background-image="img/cms-collage.png" data-background-size="contain" data-transition="fade-in fade-out">
+				<section>
+					<blockquote cite="http://herbison.com/herbison/broken_eggs_quixote.html">
+						&ldquo;It is the part of a wise man to keep himself to-day for to-morrow, and not to venture all his eggs in one basket&rdquo;
+					</blockquote>
+					<p><small>Don Quixote (Part I, Book III, Chapter 9) by Cervantes (P. Motteux, Ed.).</small></p>
 					<aside class="notes">
-						<p>When I first came to the University of Leeds, the CMS landscape was very diverse, and the University operated a UNIX web hosting service much like a commercial hosting service, where staff could request web space and do whatever they wished with it once they got it. This resulted in a profusion of different CMS systems, static sites and custom applications.</p>
+						<p>This talk is about the impracticality of diversification when it comes to choosing a content management platform, and the benefits you can gain when you settle on one solution and use it for everything. Although focusing on a single solution isn't such a good idea when you are running a portfolio of investments and you need to spread risk, in this case putting all your eggs in one basket serves to mitigate risk.</p>
+						<p>I spent a good hour looking up this phrase - apparently it is from a frivolous translation with "Franco-Cockney" ambience</p>
+					</aside>
+				</section>
+				<section>
+					<img src="img/cms-collage.png" alt="Collage of icons depicting different content management systems">
+					<aside class="notes">
+						<p>When I first came to the University of Leeds, the CMS landscape was very diverse. The University operated a UNIX web hosting service much like a commercial hosting service, where staff could request web space and do whatever they wished with it once they got it. This resulted in a profusion of different CMS systems, static sites and custom applications.</p>
+						<p>All the systems on this slide were represented there, along with some I couldn't find logos for any more.</p>
 					</aside>
 				</section>
 				<section data-background-image="img/hacked-skull-crossbones.png" data-background-size="contain">
@@ -46,7 +68,8 @@
 						<li>When the sites were examined to determine the cause, a large number were found to be vulnerable</li>
 					</ul>
 					<aside class="notes">
-						<p>In December 2016, all the sites in the UNIX hosting service were compromised and malicious code was inserted into each site. Any files which were writable by the webserver user were targets, and malicious JavaScript and PHP code inserted into many of the files. Specific systems had their own attack vectors, such as the theme files in WordPress, the site cache in MODx, or the database in drupal, mediawiki and others.</p>
+						<p>In December 2016, all the sites in the UNIX hosting service were compromised and malicious code was inserted into each site. Any files which were writable by the webserver user were targets, and malicious JavaScript and PHP code was inserted into many of the files. Specific systems had their own attack vectors, such as the theme files in WordPress, the site cache in MODx, or the database in drupal, mediawiki and others.</p>
+						<p>All sites needed to be examined for signs of the compromise, and it quickly becamme apparent that the initial attack vector would have been impossible to determine, as there were so many possibilities to choose from.</p>
 					</aside>
 				</section>
 				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
@@ -58,7 +81,7 @@
 					</ul>
 					<aside class="notes">
 						<p>Initially, the service consisted of a single WordPress multisite installation containing 160+ sites which had been created since 2011 for the two Faculties in which I had been working. This installation had outgrown its hosting (in a Virtual Machine on campus) and the service needed to be formalised and expanded to include other Faculties.</p>
-						<p>However, half way through the pilot, the service was almost filled to capacity with sites moving from the compromised UNIX hosting service</p>
+						<p>The purpose of the service was to provide hosting for small to medium sized websites for research projects, conferences and research groups in a managed environment. However, half way through the pilot, the service was almost filled to capacity with sites moving from the compromised UNIX hosting service</p>
 					</aside>
 				</section>
 				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
@@ -71,7 +94,9 @@
 						<li>Copy and paste</li>
 					</ul>
 					<aside class="notes">
-						<p>About half of WordPress sites were moved using an automated tool written by developers at WP Engine, but they had to be cleared of any infected files beforehand. Most of the remaining WordPress sites could be migrated using built-in import/expot tools in WordPress. Where sites in other systems needed to be migrated to WordPress, some migrations were carried out using the source system to generate a WordPress import file or CSV/JSON data, but this was only carried out for larger sites. The majority were migrated manually by copying and pasting content.</p>
+						<p>About half of WordPress sites were moved using an automated tool written by developers at WP Engine, but they had to be cleared of any infected files beforehand. Most of the remaining WordPress sites could be migrated using built-in import/expot tools in WordPress.</p>
+						<p>Sites in other systems needed to be migrated to WordPress, so some migrations were carried out using the source system to generate a WordPress import file or CSV/JSON data - this was only carried out for larger sites. The majority were migrated manually by copying and pasting content.</p>
+						<p>Since 2017, a large number of sites have been migrated to WordPress from Faculties whose when the main site was moved to the corporate CMS (Jadu). In 2018, over 120 sites were created in the service.</p>
 					</aside>
 				</section>
 				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
@@ -115,8 +140,13 @@
 				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
 					<h3>Disadvantages...</h3>
 					<ul>
-						<li>Proliferation of independent sites (600+ with 100+ added per year)</li>
-						<li>Requires governance, monitoring and archiving strategy</li>
+						<li>Proliferation of independent sites (600+ with 50+ added per year)</li>
+						<li>Requires governance, monitoring and an archiving strategy</li>
+					</ul>
+					<h3>Advantages...</h3>
+					<ul>
+						<li>Ability to create sites in a standard supported format quickly</li>
+						<li>Ability to monitor sites and implement governance and archiving strategies within</li>
 					</ul>
 				</section>
 			</div>
