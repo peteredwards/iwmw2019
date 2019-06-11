@@ -35,7 +35,7 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+				<section data-background-image="img/WordPress-logotype-wmark-white-trans.png" data-background-size="contain">
 					<h2>Putting all your eggs in one basket</h2>
 					<p>Peter Edwards</p>
 					<p>Application Developer, University of Leeds</p>
@@ -60,7 +60,7 @@
 						<p>All the systems on this slide were represented there, along with some I couldn't find logos for any more.</p>
 					</aside>
 				</section>
-				<section data-background-image="img/hacked-skull-crossbones.png" data-background-size="contain">
+				<section data-background-image="img/hacked-skull-crossbones-trans.png" data-background-size="contain">
 					<h3>The demise of the UNIX hosting service</h3>
 					<ul>
 						<li>In December 2016, one of the sites in the University's UNIX hosting service was hacked</li>
@@ -72,7 +72,7 @@
 						<p>All sites needed to be examined for signs of the compromise, and it quickly becamme apparent that the initial attack vector would have been impossible to determine, as there were so many possibilities to choose from.</p>
 					</aside>
 				</section>
-				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+				<section data-background-image="img/WordPress-logotype-wmark-white-trans.png" data-background-size="contain">
 					<h3>The University of Leeds WordPress hosting service</h3>
 					<ul>
 						<li>Set up as a 6 month pilot in August 2016 with WP Engine acting as a hosting provider.</li>
@@ -84,7 +84,7 @@
 						<p>The purpose of the service was to provide hosting for small to medium sized websites for research projects, conferences and research groups in a managed environment. However, half way through the pilot, the service was almost filled to capacity with sites moving from the compromised UNIX hosting service</p>
 					</aside>
 				</section>
-				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+				<section data-background-image="img/WordPress-logotype-wmark-white-trans.png" data-background-size="contain">
 					<h3>Migrating sites to WordPress</h3>
 					<ul>
 						<li>Using the WP Engine automated migration tool</li>
@@ -99,10 +99,10 @@
 						<p>Since 2017, a large number of sites have been migrated to WordPress from Faculties whose when the main site was moved to the corporate CMS (Jadu). In 2018, over 120 sites were created in the service.</p>
 					</aside>
 				</section>
-				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+				<section data-background-image="img/WordPress-logotype-wmark-white-trans.png" data-background-size="contain">
 					<h3>Using WordPress at scale</h3>
 				</section>
-				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+				<section data-background-image="img/WordPress-logotype-wmark-white-trans.png" data-background-size="contain">
 					<h3>WordPress multisite</h3>
 					<p>in WordPress core since 2010, version 3.0</p>
 					<ul>
@@ -115,7 +115,7 @@
 						<p>We currently use WordPress multisite to host over 600 websites at the University of Leeds. These are spread across a few separate WordPress installations, so sites utilising the University's branded theme are all grouped together in an installation which only has this theme installed and the plugins which are known to work with it. Non-branded sites are placed in a different installation with a single theme (GeneratePress) installed along the plugins which are known to work with it. One installation is used to dump older WordPress sites developed by third parties and sites which require esoteric plugins, in order to separate them from the more simple sites.</p>
 					</aside>
 				</section>
-				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+				<section data-background-image="img/WordPress-logotype-wmark-white-trans.png" data-background-size="contain">
 					<h3>Domain mapping</h3>
 					<p>in WordPress core since 2016, version 4.5</p>
 					<ul>
@@ -126,28 +126,38 @@
 						<p>Domain mapping allows you to assign different domain names to each of the sites in a multisite Network. All websites in the service use their own domain names, and administrators and editors of these sites have the same experience as they would on a standalone installation of WordPress, with the exception that they cannot change the Theme or install Plugins.</p>
 					</aside>
 				</section>
-				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+				<section data-background-image="img/WordPress-logotype-wmark-white-trans.png" data-background-size="contain">
 					<h3>Caching and optimisation</h3>
 					<p>Enabled through plugins and server configuration</p>
 					<ul>
-						<li>Plugins will save WordPress output to files, much like using WordPress as a static site generator</li>
+						<li>Plugins will save WordPress output to files - using WordPress like a static site generator</li>
 						<li>Servers are configured to check the file based cache rather than generate content dynamically for each request</li>
 					</ul>
 					<aside class="notes">
 						<p>WP Engine provides caching and optimisation on their platform, but this does not always work in our favour. WordPress is not an optimal system for websites, and all pages should ideally be cached as HTML files by an appropriate plugin. WP Engine go a few steps further than this, including loading databases into RAM, which has caused problems for us with the multisite installations.</p>
 					</aside>
 				</section>
-				<section data-background-image="img/WordPress-logotype-wmark-white.png" data-background-size="contain">
+				<section data-background-image="img/WordPress-logotype-wmark-white-trans.png" data-background-size="contain">
 					<h3>Disadvantages...</h3>
 					<ul>
 						<li>Proliferation of independent sites (600+ with 50+ added per year)</li>
+						<li>Sites are uniform and percieved by users as being "boring"</li>
 						<li>Requires governance, monitoring and an archiving strategy</li>
 					</ul>
+					<aside class="notes">
+						<p></p>
+					</aside>
+				</section>
+				<section data-background-image="img/WordPress-logotype-wmark-white-trans.png" data-background-size="contain">
 					<h3>Advantages...</h3>
 					<ul>
-						<li>Ability to create sites in a standard supported format quickly</li>
-						<li>Ability to monitor sites and implement governance and archiving strategies within</li>
+						<li>Ability to create sites in a standard supported format quickly with no coding required</li>
+						<li>Sites share a common design, so enhancements such as Accessibility features can be added to all sites simultaneously</li>
+						<li>Ability to implement governance, monitoring and archiving strategies</li>
 					</ul>
+					<aside class="notes">
+						<p></p>
+					</aside>
 				</section>
 			</div>
 		</div>
